@@ -1,88 +1,45 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<html lang="en" dir="ltr">
 
-    <title>Number guessing game</title>
+<head>
+  <meta charset="utf-8">
+  <title>😁 Ernie's Website</title>
+</head>
 
-    <style>
-      html {
-        font-family: sans-serif;
-      }
+<body>
+  <h1>Hello, welcome to my testing site!</h1>
+  <div>
+    <textarea name="name" rows="8" cols="80"> I'm using this space to develop my website skills and see where it can take me. Starting from ground zero again back to basics.
+      </textarea>
+  </div>
+  <div>
+    <form action="mailto:ernest.j.r.aw@gmail.com" method="post" enctype="text/plain">
+      <label for="username">Username:</label><br>
+      <input type="text" name="username" autocomplete="additional-name"> <br>
+      <label for="pass">Please enter your password:</label><br>
+      <input autocomplete="password" name="pass" type="password" id="pass" minlength="2" maxlength="8"><br>
+      <label>Date:</label><br>
+      <input type="date" name="date"><br>
+      <textarea name="message" rows="8" cols="80"></textarea><br>
+      <input type="submit" name="">
+    </form>
+  </div>
+  <table>
+    <thead>
+      <th>Column 1</th>
+      <th>Column 2</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>One</td>
+        <td>Two</td>
+      </tr>
+      <tr>
+        <td>Three</td>
+        <td>Four</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
 
-      body {
-        width: 50%;
-        max-width: 800px;
-        min-width: 480px;
-        margin: 0 auto;
-      }
-
-      .lastResult {
-        color: white;
-        padding: 3px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>Number guessing game</h1>
-
-    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
-
-    <div class="form">
-      <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
-      <input type="submit" value="Submit guess" class="guessSubmit">
-    </div>
-
-    <div class="resultParas">
-      <p class="guesses"></p>
-      <p class="lastResult"></p>
-      <p class="lowOrHi"></p>
-    </div>
-
-    <script>
-        
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
-        const guesses = document.querySelector('.guesses');
-        const lastResult = document.querySelector('.lastResult');
-        const lowOrHi = document.querySelector('.lowOrHi');
-
-        const guessSubmit = document.querySelector('.guessSubmit');
-        const guessField = document.querySelector('.guessField');
-
-        let guessCount = 1;
-        let resetButton;
-        
-        function checkGuess() {
-          let userGuess = Number(guessField.value);
-          if (guessCount === 1) {
-            guesses.textContent = 'Previous guesses: ';
-          }
-          guesses.textContent += userGuess + ' ';
-
-          if (userGuess === randomNumber) {
-            lastResult.textContent = 'Congratulations! You got it right!';
-            lastResult.style.backgroundColor = 'green';
-            lowOrHi.textContent = '';
-            setGameOver();
-          } else if (guessCount === 10) {
-            lastResult.textContent = '!!!GAME OVER!!!';
-            setGameOver();
-          } else {
-            lastResult.textContent = 'Wrong!';
-            lastResult.style.backgroundColor = 'red';
-            if(userGuess < randomNumber) {
-              lowOrHi.textContent = 'Last guess was too low!';
-            } else if(userGuess > randomNumber) {
-              lowOrHi.textContent = 'Last guess was too high!';
-            }
-          }
-
-          guessCount++;
-          guessField.value = '';
-          guessField.focus();
-        }
-
-    </script>
-  </body>
 </html>
